@@ -1,0 +1,55 @@
+<div class="container mt-5">
+  <div class="columns is-centered">
+    <div class="box column is-one-third">
+      <h1 class="title has-text-centered">Password Generator</h1>
+
+      <div class="field">
+        <label>Length</label>
+          <input
+            class="input"
+            type="text"
+            placeholder="Text input"
+            (input)="onChangeLength($event)"
+          />
+      </div>
+
+      <div class="field">
+        <label class="checkbox">
+          <input (change)="onChangeUseLetters()" type="checkbox" />
+          Use Letter
+        </label>
+      </div>
+
+      <div class="field">
+        <label class="checkbox">
+          <input (change)="onChangeUseNumbers()" type="checkbox" />
+          Use Numbers
+        </label>
+      </div>
+
+      <div class="field">
+        <label class="checkbox">
+          <input (change)="onChangerUseSymbols()" type="checkbox" />
+          Use Symbols
+        </label>
+      </div>
+
+      <div>
+        <button
+          [disabled]="
+            !(length && (includeLetters || includeNumbers || includeSymbols))
+          "
+          (click)="onButtonClick()"
+          class="button is-fullwidth"
+        >
+          Generate!
+        </button>
+      </div>
+
+      <div class="box" ="password">
+        <label>Your Password</label>
+        <input class="input" [value]="password" />
+      </div>
+    </div>
+  </div>
+</div>
